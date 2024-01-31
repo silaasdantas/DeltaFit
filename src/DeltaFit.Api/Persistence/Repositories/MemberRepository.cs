@@ -2,6 +2,7 @@
 using DeltaFit.Api.Application.Abstractions;
 using DeltaFit.Api.Domain.Entities;
 using DeltaFit.Api.Domain.Repositories;
+using DeltaFit.Api.Infrastructure.Cryptography;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,8 +24,30 @@ namespace DeltaFit.Api.Persistence.Repositories
         {
             if (!_dbContext.Members.Any())
             {
-                _dbContext.Members.Add(new Member(Guid.NewGuid(), "silas.dantas@gmail.com", "Silas", "Dantas Pereira"));
-                _dbContext.Members.Add(new Member(Guid.NewGuid(), "paloma.almeida@gmail.com", "Paloma", "Alemida Barros"));
+                _dbContext.Permissions.Add(new Permission() { Id = 1, Name = "ReadMember" });
+                _dbContext.Permissions.Add(new Permission() { Id = 2, Name = "UpdateMember" });
+
+                _dbContext.Roles.Add(new Role(1, "Admin"));
+                _dbContext.Roles.Add(new Role(2, "PersonalTrainer"));
+                _dbContext.Roles.Add(new Role(3, "Customer"));
+
+                var criptography = Hashing.DoCompute("Sdq1w2e3r4@");
+
+                _dbContext.Members.Add(new Member(
+                    Guid.NewGuid(),
+                    "silas.dantas@gmail.com",
+                    "Silas", "Dantas Pereira",
+                    criptography.Hash,
+                    criptography.Salt));
+
+                _dbContext.Members.Add(new Member(
+                    Guid.NewGuid(),
+                    "paloma.almeida@gmail.com",
+                    "Paloma",
+                    "Alemida Barros",
+                    criptography.Hash,
+                    criptography.Salt));
+
                 _dbContext.SaveChanges();
             }
         }
@@ -54,17 +77,17 @@ namespace DeltaFit.Api.Persistence.Repositories
             return member;
         }
 
-        //public async Task<Member> GetByEmailAsync(Email email, CancellationToken cancellationToken = default) =>
-        //     await _dbContext
-        //        .Set<Member>()
-        //        .FirstOrDefaultAsync(member => member.Email == email, cancellationToken);
+        public async Task<Member> GetByEmailAsync(string email, CancellationToken cancellationToken = default) =>
+             await _dbContext
+                .Set<Member>()
+                .FirstOrDefaultAsync(member => member.Email == email, cancellationToken);
 
-        //public async Task<bool> IsEmailUniqueAsync(
-        //    Email email,
-        //    CancellationToken cancellationToken = default) =>
-        //    !await _dbContext
-        //        .Set<Member>()
-        //        .AnyAsync(member => member.Email == email, cancellationToken);
+        public async Task<bool> IsEmailUniqueAsync(
+            string email,
+            CancellationToken cancellationToken = default) =>
+            !await _dbContext
+                .Set<Member>()
+                .AnyAsync(member => member.Email == email, cancellationToken);
 
         public void Add(Member member) =>
             _dbContext.Set<Member>().Add(member);

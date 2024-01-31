@@ -8,9 +8,9 @@ namespace DeltaFit.Api.Domain.Repositories
 
         Task<Member> GetByIdWithDapperAsync(Guid id, CancellationToken cancellationToken = default);
 
-        //Task<Member> GetByEmailAsync(Email email, CancellationToken cancellationToken = default);
+        Task<Member> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
 
-        //Task<bool> IsEmailUniqueAsync(Email email, CancellationToken cancellationToken = default);
+        Task<bool> IsEmailUniqueAsync(string email, CancellationToken cancellationToken = default);
 
         Task<List<Member>> GetMembersAsync(CancellationToken cancellationToken = default);
 
