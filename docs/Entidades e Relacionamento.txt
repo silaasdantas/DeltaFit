@@ -1,0 +1,55 @@
+Personas, quem são:
+	Professores
+	Alunos
+	Administrador
+
+O que ele faz Professor:
+	#Um professor pode ter varios alunos
+	#O Professor cadastra novos alunos
+	#O Professor pode enviar um link de cadastro para o aluno se cadastrar.
+	#Cadastra novos treinos para alunos
+	#Faz upload de videos de Exercicios
+		#Um exercicio pode ter variações de videos
+	#Responde os feedback dos alunos em relação aos treinos e exercicios 
+	#Faz avaliações dos alunos 
+O que o aluno faz:
+	#O aluno pode se cadastrar a partir de um link enviado pelo professor
+	#O aluno tem somente um professor
+	#O aluno tem varios treinos
+	#O aluno faz feedbacks de treinos e exercicios
+	#O aluno assiste videos de exercicios
+	
+Entidades:
+	#Professor
+		tem varios alunos
+		tem varios treinos
+		tem varios videos
+		tem varios exercicios
+		tem varios feedbacks para alunos
+	#Aluno
+		tem um professor
+		tem varios treinos
+		tem varios feedbacks
+		tem varias avaliações
+	#Treino
+		tem varios exercicios
+		tem varios feedbacks
+	#Exercicios
+		tem varios videos
+	#TreinoExercicio (relacionamento intermediario)
+		tem varios treinos
+		tem varios exercicios		
+	#TreinoExercicioVideo
+		tem um TreinoExercicio
+		tem varios videos
+	#Video
+	#ProfessorVideo				
+		tem um professor
+		tem um video	
+	#Feedback
+		tem um professor ou tem um aluno
+		tem um treino ou exercicio
+	#Avaliacao
+		tem um professor
+		tem um aluno
+	
