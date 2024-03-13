@@ -26,6 +26,7 @@ namespace DeltaFit.Api.Controllers
         [AllowAnonymous]
         public ActionResult<Jwt> Authenticate([FromBody] LoginCommand command)
         {
+            _logger.LogInformation("Generating JTW token");
             var token = _jwtProvider.GenerateToken(command);
             return Ok(token);
         }
