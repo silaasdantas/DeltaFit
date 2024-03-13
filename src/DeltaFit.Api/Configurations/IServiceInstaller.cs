@@ -1,7 +1,6 @@
-﻿namespace DeltaFit.Api.Configurations
+namespace DeltaFit.Api.Configurations;
+
+public interface IServiceInstaller
 {
-    public interface IServiceInstaller
-    {
-        void Install(IServiceCollection services, IConfiguration configuration);
-    }
+    void Install(IServiceCollection services, IConfiguration configuration);
 }

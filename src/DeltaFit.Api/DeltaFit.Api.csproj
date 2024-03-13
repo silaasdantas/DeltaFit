@@ -1,28 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>75b6a9c6-2a4d-4a05-9b66-0d369aac5cc3</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.28" />
-    <PackageReference Include="MediatR" Version="11.1.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.26" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.26" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
-    <PackageReference Include="Scrutor" Version="4.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.27" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.3.0" />
+    <PackageReference Include="Scrutor" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Members\Commands\" />
+    <ProjectReference Include="..\DeltaFit.Infrastructure\DeltaFit.Infrastructure.csproj" />
+    <ProjectReference Include="..\DeltaFit.Application\DeltaFit.Application.csproj" />
+    <ProjectReference Include="..\DeltaFit.Domain\DeltaFit.Domain.csproj" />
   </ItemGroup>
 
 </Project>

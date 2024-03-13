@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace DeltaFit.Api;
+namespace DeltaFit.Application;
 
 public static class AssemblyReference
 {

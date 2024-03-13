@@ -1,17 +1,16 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
+using System.Text.Json.Serialization;
 using DeltaFit.Api.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services
     .InstallServices(
         builder.Configuration,
         typeof(IServiceInstaller).Assembly);
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 
 
@@ -27,6 +26,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
