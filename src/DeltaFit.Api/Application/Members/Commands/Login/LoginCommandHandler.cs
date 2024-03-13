@@ -4,6 +4,7 @@ using DeltaFit.Api.Domain.Entities;
 using DeltaFit.Api.Domain.Errors;
 using DeltaFit.Api.Domain.Repositories;
 using DeltaFit.Api.Domain.Shared;
+using DeltaFit.Api.Domain.ValueObjects;
 using DeltaFit.Api.Infrastructure.Cryptography;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,11 +25,10 @@ namespace DeltaFit.Api.Application.Members.Commands.Login
         }
         public async Task<Result<string>> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var email = request.Email;
-            //Result<Email> email = Email.Create(request.Email);
+            Result<Email> email = Email.Create(request.Email);
 
             Member member = await _memberRepository.GetByEmailAsync(
-                email,
+                email.Value,
                 cancellationToken);
 
             if (member is null)

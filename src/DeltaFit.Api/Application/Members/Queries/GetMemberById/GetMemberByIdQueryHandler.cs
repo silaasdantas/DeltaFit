@@ -31,9 +31,9 @@ namespace DeltaFit.Api.Application.Members.Queries.GetMemberById
 
             var response = new MemberResponse(
                 member.Id,
-                member.Email,
-                member.FirstName,
-                member.LastName);
+                member.Email.Value,
+                member.FirstName.Value,
+                member.LastName.Value);
 
             return response;
         }

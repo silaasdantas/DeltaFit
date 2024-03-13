@@ -1,7 +1,7 @@
 ﻿using DeltaFit.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DeltaFit.Api.Persistence
+namespace DeltaFit.Persistence
 {
     public sealed class ApplicationDbContext : DbContext
     {

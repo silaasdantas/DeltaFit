@@ -2,6 +2,7 @@
 {
     public sealed record RegisterMemberRequest(
         string Email,
+        string Phone,
         string FirstName,
         string LastName,
         string Password);

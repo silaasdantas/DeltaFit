@@ -10,11 +10,15 @@ namespace DeltaFit.Api.Domain.Errors
                 "Member.EmailAlreadyInUse",
                 "The specified email is already in use");
 
-            public static readonly Func<Guid, Error> NotFound = id => new Error(
+            public static readonly Error PhoneAlreadyInUse = new(
+                "Member.PhoneAlreadyInUse",
+                "The specified phone is already in use");
+
+            public static readonly Func<Guid, Error> NotFound = id => new (
                 "Member.NotFound",
                 $"The member with the identifier {id} was not found.");
 
-            public static readonly Error NotExist = new Error(
+            public static readonly Error NotExist = new(
                 "Members.NotExist",
                 $"There is no members");
 
@@ -25,7 +29,7 @@ namespace DeltaFit.Api.Domain.Errors
 
         public static class Invitation
         {
-            public static readonly Func<Guid, Error> AlreadyAccepted = id => new Error(
+            public static readonly Func<Guid, Error> AlreadyAccepted = id => new (
                 "Invitation.AlreadyAccepted",
                 $"The invitation with Id {id} has already been accepted");
         }
@@ -61,6 +65,28 @@ namespace DeltaFit.Api.Domain.Errors
             public static readonly Error TooLong = new(
                 "LastName.TooLong",
                 "Last name is too long");
+        }
+
+        public static class Phone
+        {
+            public static readonly Error Empty = new(
+                "Phone.Empty",
+                "Phone is empty");
+
+            public static readonly Error InvalidFormat = new(
+                "Phone.InvalidFormat",
+                "Phone format is invalid");
+        }
+
+        public static class Password
+        {
+            public static readonly Error Empty = new(
+                "Password.Empty",
+                "Password is empty");
+
+            public static readonly Error InvalidFormat = new(
+                "Password.InvalidFormat",
+                "Password format is invalid");
         }
     }
 }

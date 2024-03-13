@@ -5,9 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeltaFit.Api", "src\DeltaFit.Api\DeltaFit.Api.csproj", "{5FDEC61B-58C0-4E92-97EA-E312EE587B22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaFit.Persistence", "src\DeltaFit.Persistence\DeltaFit.Persistence.csproj", "{84992DEA-59ED-4EB1-BFC2-21681CC1DD24}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaFit.UnitTest", "test\DeltaFit.UnitTest\DeltaFit.UnitTest.csproj", "{22740A9D-7744-4AA1-B039-E47B24DB9467}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeltaFit.UnitTest", "test\DeltaFit.UnitTest\DeltaFit.UnitTest.csproj", "{22740A9D-7744-4AA1-B039-E47B24DB9467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{5FDEC61B-58C0-4E92-97EA-E312EE587B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FDEC61B-58C0-4E92-97EA-E312EE587B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FDEC61B-58C0-4E92-97EA-E312EE587B22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84992DEA-59ED-4EB1-BFC2-21681CC1DD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84992DEA-59ED-4EB1-BFC2-21681CC1DD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84992DEA-59ED-4EB1-BFC2-21681CC1DD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84992DEA-59ED-4EB1-BFC2-21681CC1DD24}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22740A9D-7744-4AA1-B039-E47B24DB9467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22740A9D-7744-4AA1-B039-E47B24DB9467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22740A9D-7744-4AA1-B039-E47B24DB9467}.Release|Any CPU.ActiveCfg = Release|Any CPU

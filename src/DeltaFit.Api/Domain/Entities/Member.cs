@@ -1,14 +1,16 @@
 ﻿using DeltaFit.Api.Domain.Primitives;
+using DeltaFit.Api.Domain.ValueObjects;
 
 namespace DeltaFit.Api.Domain.Entities
 {
     public class Member : AggregateRoot, IAuditableEntity
     {
-        public Member(Guid id, string email, string firstName, string lastName, byte[] passwordHash, byte[] passwordSalt)
+        public Member(Guid id, Email email, Phone phone, FirstName firstName, LastName lastName, byte[] passwordHash, byte[] passwordSalt)
             : base(id)
         {
             Id = id;
             Email = email;
+            Phone = phone;
             FirstName = firstName;
             LastName = lastName;
             PasswordHash = passwordHash;
@@ -17,10 +19,10 @@ namespace DeltaFit.Api.Domain.Entities
         private Member()
         {
         }
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string PhoneNumber { get; set; } = string.Empty;
+        public Email Email { get; set; }
+        public FirstName FirstName { get; set; }
+        public LastName LastName { get; set; }
+        public Phone Phone { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public DateTime CreatedOnUtc { get; set; }
@@ -30,9 +32,10 @@ namespace DeltaFit.Api.Domain.Entities
 
         public static Member Create(
                    Guid id,
-                   string email,
-                   string firstName,
-                   string lastName,
+                   Email email,
+                   Phone phone,
+                   FirstName firstName,
+                   LastName lastName,
                    byte[] passwordHash,
                    byte[] passwordSalt)
         {
@@ -40,6 +43,7 @@ namespace DeltaFit.Api.Domain.Entities
             var member = new Member(
                 id,
                 email,
+                phone,
                 firstName,
                 lastName,
                  passwordHash,

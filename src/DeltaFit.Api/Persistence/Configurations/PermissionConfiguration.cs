@@ -1,22 +1,27 @@
-﻿//namespace DeltaFit.Api.Persistence.Configurations
-//{
-//    internal sealed class PermissionConfiguration : IEntityTypeConfiguration<Permission>
-//    {
-//        public void Configure(EntityTypeBuilder<Permission> builder)
-//        {
-//            builder.ToTable(TableNames.Permissions);
+﻿using DeltaFit.Api.Domain.Entities;
+using DeltaFit.Api.Persistence.Constants;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-//            builder.HasKey(p => p.Id);
+namespace DeltaFit.Api.Persistence.Configurations
+{
+    internal sealed class PermissionConfiguration : IEntityTypeConfiguration<Permission>
+    {
+        public void Configure(EntityTypeBuilder<Permission> builder)
+        {
+            builder.ToTable(TableNames.Permissions);
 
-//            IEnumerable<Permission> permissions = Enum
-//                .GetValues<Domain.Enums.Permission>()
-//                .Select(p => new Permission
-//                {
-//                    Id = (int)p,
-//                    Name = p.ToString(),
-//                });
+            builder.HasKey(p => p.Id);
 
-//            builder.HasData(permissions);
-//        }
-//    }
-//}
+            IEnumerable<Permission> permissions = Enum
+                .GetValues<Domain.Enums.Permission>()
+                .Select(p => new Permission
+                {
+                    Id = (int)p,
+                    Name = p.ToString(),
+                });
+
+            builder.HasData(permissions);
+        }
+    }
+}

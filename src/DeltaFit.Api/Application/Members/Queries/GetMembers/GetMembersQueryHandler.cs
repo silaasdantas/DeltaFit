@@ -27,9 +27,9 @@ namespace DeltaFit.Api.Application.Members.Queries.GetMembers
             var memberResponses = members.
                 Select(p => new MemberResponse(
                     p.Id,
-                    p.Email,
-                    p.FirstName,
-                    p.LastName))
+                    p.Email.Value,
+                    p.FirstName.Value,
+                    p.LastName.Value))
                 .OrderBy(p => p.Id)
                 .Skip((request.Page - 1) * request.PageSize) //100ms, but works with guid and int
                 .ToList();

@@ -7,7 +7,7 @@ using DeltaFit.Api.Infrastructure.Cryptography;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace DeltaFit.Api.Persistence.Repositories
+namespace DeltaFit.Persistence.Repositories
 {
     public sealed class MemberRepository : IMemberRepository
     {

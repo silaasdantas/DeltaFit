@@ -48,9 +48,9 @@ namespace DeltaFit.Api.Application.Members.Queries.GetMemberById
 
             var response = new MemberResponse(
                 dbMember.Id,
-                dbMember.Email,
-                dbMember.FirstName,
-                dbMember.LastName);
+                dbMember.Email.Value,
+                dbMember.FirstName.Value,
+                dbMember.LastName.Value);
 
             //after we get member in db, we convert it into MemberResponse object and save it in cache.
 

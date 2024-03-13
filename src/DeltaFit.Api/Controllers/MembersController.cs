@@ -52,6 +52,7 @@ namespace DeltaFit.Api.Controllers
         {
             var command = new CreateMemberCommand(
                 request.Email,
+                request.Phone,
                 request.FirstName,
                 request.LastName,
                 request.Password);

@@ -1,5 +1,4 @@
 ﻿using DeltaFit.Api.Domain.Primitives;
-using System.Security;
 
 namespace DeltaFit.Api.Domain.Entities
 {
@@ -11,6 +10,8 @@ namespace DeltaFit.Api.Domain.Entities
             : base(id, name)
         {
         }
+
+        public ICollection<Role> Roles { get; set; }
 
         public ICollection<Permission> Permissions { get; set; }
 

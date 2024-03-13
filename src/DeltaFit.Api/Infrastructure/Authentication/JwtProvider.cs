@@ -27,7 +27,7 @@ namespace DeltaFit.Api.Infrastructure.Authentication
             var claims = new List<Claim>
             {
                 new(JwtRegisteredClaimNames.Sub, member.Id.ToString()),
-                new(JwtRegisteredClaimNames.Email, member.Email)
+                new(JwtRegisteredClaimNames.Email, member.Email.Value)
             };
 
             HashSet<string> permissions = await _permissionService
