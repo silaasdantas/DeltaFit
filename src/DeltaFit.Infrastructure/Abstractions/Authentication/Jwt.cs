@@ -1,4 +1,4 @@
-﻿namespace DeltaFit.Application
+﻿namespace DeltaFit.Infrastructure.Abstractions.Authentication
 {
     public class Jwt
     {

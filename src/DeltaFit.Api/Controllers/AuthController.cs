@@ -1,14 +1,12 @@
-using DeltaFit.Application;
+using DeltaFit.Api.Abstractions;
+using DeltaFit.Application.Users.Commands;
+using DeltaFit.Domain.Entities;
+using DeltaFit.Infrastructure.Abstractions.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using DeltaFit.Api.Abstractions;
-using DeltaFit.Application.Abstractions.Authentication;
-using DeltaFit.Application.Login;
 
 namespace DeltaFit.Api.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class AuthController : ApiController
     {
         private readonly ILogger<AuthController> _logger;
@@ -24,11 +22,14 @@ namespace DeltaFit.Api.Controllers
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public ActionResult<Jwt> Authenticate([FromBody] LoginCommand command)
+        public ActionResult<Jwt> LoginUser([FromBody] LoginCommand command)
         {
             _logger.LogInformation("Generating JTW token");
 
-            var token = _jwtProvider.GenerateToken(command);
+            //TODO: verificar se o usuario existe
+            var user = new User();
+
+            var token = _jwtProvider.GenerateToken(user);
 
             return Ok(token);
         }

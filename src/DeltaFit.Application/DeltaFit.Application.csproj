@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />    
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DeltaFit.Domain\DeltaFit.Domain.csproj" />
+    <ProjectReference Include="..\DeltaFit.Infrastructure\DeltaFit.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ public class ApplicationServiceInstaller : IServiceInstaller
 {
     public void Install(IServiceCollection services, IConfiguration configuration)
     {
-        // services.AddMediatR(Application.AssemblyReference.Assembly);
+        //services.AddMediatR(Application.AssemblyReference.Assembly);
 
         // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingPiepelineBehavior<,>));
         //

@@ -1,13 +1,16 @@
-﻿namespace DeltaFit.Domain.Entities
+﻿using DeltaFit.Domain.ValueObjects;
+
+namespace DeltaFit.Domain.Entities
 {
     public class User
     {
+        public User() { }
         public User(
                    Guid id,
-                   string email,
-                   string phone,
-                   string firstName,
-                   string lastName,
+                   Email email,
+                   Phone phone,
+                   FirstName firstName,
+                   LastName lastName,
                    byte[] passwordHash,
                    byte[] passwordSalt)
         {
@@ -21,10 +24,10 @@
         }
 
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public FirstName FirstName { get; set; }
+        public LastName LastName { get; set; }
+        public Email Email { get; set; }
+        public Phone Phone { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public DateTime CreatedOnUtc { get; set; }
@@ -34,10 +37,10 @@
 
         public static User Create(
                    Guid id,
-                   string email,
-                   string phone,
-                   string firstName,
-                   string lastName,
+                   Email email,
+                   Phone phone,
+                   FirstName firstName,
+                   LastName lastName,
                    byte[] passwordHash,
                    byte[] passwordSalt)
         {

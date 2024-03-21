@@ -1,11 +1,10 @@
-﻿using DeltaFit.Application;
+﻿using DeltaFit.Domain.Entities;
+using DeltaFit.Infrastructure.Abstractions.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using DeltaFit.Application.Abstractions.Authentication;
-using DeltaFit.Application.Login;
 
 namespace DeltaFit.Infrastructure.Authentication
 {
@@ -18,7 +17,7 @@ namespace DeltaFit.Infrastructure.Authentication
             _configuration = configuration;
         }
 
-        public Jwt GenerateToken(LoginCommand command)
+        public Jwt GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             //var issuer = _configuration.GetRequiredSection("Jwt:Issuer").Value;
@@ -31,8 +30,11 @@ namespace DeltaFit.Infrastructure.Authentication
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, command.Name),
-                    new Claim(ClaimTypes.Role, RoleFactory(command.Type))
+                    new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                    new(JwtRegisteredClaimNames.Email, user.Email.Value),
+                    new(JwtRegisteredClaimNames.Name, user.FirstName.Value),
+                    //new Claim(ClaimTypes.Name, user.FirstName.Value),
+                    //new Claim(ClaimTypes.Role, RoleFactory(user.Type))
                 }),
                 NotBefore = createDate,
                 Expires = expirationDate,

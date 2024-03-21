@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeltaFit.Application\DeltaFit.Application.csproj" />
+    <ProjectReference Include="..\DeltaFit.Domain\DeltaFit.Domain.csproj" />
   </ItemGroup>
 
+  
 </Project>
