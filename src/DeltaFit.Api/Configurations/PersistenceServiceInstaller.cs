@@ -8,11 +8,6 @@ public class PersistenceServiceInstaller : IServiceInstaller
 {
     public void Install(IServiceCollection services, IConfiguration configuration)
     {
-        //var connectionString = configuration.GetConnectionString("DefaultConnection");
-
-        //services
-        //    .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
         services.AddDbContext<ApplicationDbContext>(
                //(sp, optionsBuilder) =>
                //{

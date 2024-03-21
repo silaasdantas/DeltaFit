@@ -13,9 +13,9 @@ namespace DeltaFit.Domain.Repositories
 
         Task<bool> IsEmailUniqueAsync(Email email, CancellationToken cancellationToken = default);
 
-        Task<bool> IsPhoneUniqueAsync(Phone phone, CancellationToken cancellationToken);
+        Task<bool> IsPhoneUniqueAsync(Phone phone, CancellationToken cancellationToken = default);
 
-        Task<List<User>> GetMembersAsync(CancellationToken cancellationToken = default);
+        Task<List<User>> GetUsersAsync(CancellationToken cancellationToken = default);
 
         void Add(User user);
 

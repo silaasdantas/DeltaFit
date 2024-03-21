@@ -1,8 +1,9 @@
-﻿using DeltaFit.Domain.ValueObjects;
+﻿using DeltaFit.Domain.Primitives;
+using DeltaFit.Domain.ValueObjects;
 
 namespace DeltaFit.Domain.Entities
 {
-    public class User
+    public class User: IAuditableEntity
     {
         public User() { }
         public User(

@@ -10,7 +10,9 @@ public class InfrastructureServiceInstaller : IServiceInstaller
             .Scan(
                 selector => selector
                     .FromAssemblies(
-                        Infrastructure.AssemblyReference.Assembly)
+                        Infrastructure.AssemblyReference.Assembly,
+                        Persistence.AssemblyReference.Assembly,
+                        Application.AssemblyReference.Assembly)
                     .AddClasses(false)
                     .UsingRegistrationStrategy(RegistrationStrategy.Skip)
                     .AsMatchingInterface()

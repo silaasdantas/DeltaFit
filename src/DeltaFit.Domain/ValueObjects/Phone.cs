@@ -21,11 +21,6 @@ namespace DeltaFit.Domain.ValueObjects
                 return Result.Failure<Phone>(DomainErrors.Phone.Empty);
             }
 
-            if (phone.Split('@').Length != 2)
-            {
-                return Result.Failure<Phone>(DomainErrors.Phone.InvalidFormat);
-            }
-
             return new Phone(phone);
         }
         public override IEnumerable<object> GetAtomicValues()
