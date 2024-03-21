@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
-using System.Text.Json.Serialization;
 using DeltaFit.Api.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +6,6 @@ builder.Services
     .InstallServices(
         builder.Configuration,
         typeof(IServiceInstaller).Assembly);
-
-
 
 var app = builder.Build();
 

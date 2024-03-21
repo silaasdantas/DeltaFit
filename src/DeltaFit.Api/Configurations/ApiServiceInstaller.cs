@@ -1,5 +1,5 @@
-using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 namespace DeltaFit.Api.Configurations;
 
@@ -9,7 +9,7 @@ public class ApiServiceInstaller : IServiceInstaller
     {
         services
             .AddControllers()
-            .AddApplicationPart(Api.AssemblyReference.Assembly);
+            .AddApplicationPart(AssemblyReference.Assembly);
 
         services.AddControllers();
 

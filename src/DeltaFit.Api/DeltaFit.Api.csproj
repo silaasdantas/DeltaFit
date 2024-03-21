@@ -9,9 +9,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.27" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.27" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.27" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.27" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.28" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.28">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -24,6 +23,7 @@
     <ProjectReference Include="..\DeltaFit.Infrastructure\DeltaFit.Infrastructure.csproj" />
     <ProjectReference Include="..\DeltaFit.Application\DeltaFit.Application.csproj" />
     <ProjectReference Include="..\DeltaFit.Domain\DeltaFit.Domain.csproj" />
+    <ProjectReference Include="..\DeltaFit.Persistence\DeltaFit.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

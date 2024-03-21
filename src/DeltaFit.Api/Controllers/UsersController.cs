@@ -4,11 +4,11 @@ using DeltaFit.Api.Abstractions;
 
 namespace DeltaFit.Api.Controllers
 {
-    public class MemberController : ApiController
+    public class UsersController : ApiController
     {
-        private readonly ILogger<MemberController> _logger;
+        private readonly ILogger<UsersController> _logger;
         
-        public MemberController(ILogger<MemberController> logger)
+        public UsersController(ILogger<UsersController> logger)
         {
             _logger = logger;
         }
