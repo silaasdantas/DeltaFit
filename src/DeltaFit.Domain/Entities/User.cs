@@ -30,6 +30,7 @@
         public DateTime CreatedOnUtc { get; set; }
         public DateTime? ModifiedOnUtc { get; set; }
         public bool Active { get; set; }
+        public ICollection<Role> Roles { get; set; }
 
         public static User Create(
                    Guid id,
